@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import Loading from "./components/Loading/Loading.jsx"
-import {useSpring, animated} from "@react-spring/web"
-import './App.css'
+import React, { useState } from "react";
+import Map from "./components/Map/Map.jsx";
+import "./App.css"; 
 
-function App() 
-{
+function App() {
+
   return (
-    <Loading/>
+    <div>
+      <Map />
+    </div>
   );
 }
 
-export default App
+export default App;
