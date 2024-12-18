@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevent scrollbar during animation */
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+.logo {
+  width: 500px; /* Adjust the size of your logo */
+}
+
+.main-content {
+  display: block;
+  padding: 20px;
+}
