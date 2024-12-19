@@ -2,7 +2,16 @@
 
 .reset-button {
     position: absolute;
-    bottom: 90px;
-    left: 820px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    bottom: 60px;
+    left: 915px;
+    font-family:'arial';
   }
+
+  .search-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    z-index: 1;
+  }
+  

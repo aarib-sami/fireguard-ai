@@ -3,6 +3,7 @@ import ReactMapGl from 'react-map-gl';
 import "mapbox-gl/dist/mapbox-gl.css";
 import './Map.css';
 import Button from '@mui/material/Button';
+import Search from '../SearchBox/SearchBox';
 
 
 function Map(props) {
@@ -40,6 +41,22 @@ function Map(props) {
     props.disablePrediction();
   }
 
+  function onSearch(results){
+    const {geometry} = results.features[0];
+    const [long, lat] = geometry.coordinates;
+
+    setViewport({
+      latitude: lat,
+      longitude: long,
+      zoom: 18,
+    })
+    props.enablePrediction();
+  }
+
+  function onSearchClick(){
+    props.disablePrediction();
+  }
+
   return (
     <div className="map-container">
       <ReactMapGl
@@ -48,9 +65,13 @@ function Map(props) {
         mapStyle="mapbox://styles/mapbox/satellite-v9"
         onMove={!moving && handleMove}
         onClick={handleMapClick}
+        scrollZoom={{ speed: 2 }}
       >
       </ReactMapGl>
       <Button variant="contained" size="small" className="reset-button" onClick={resetMap}>Reset Map</Button>
+      <div className="Search">
+        <Search onSearch={onSearch} onClick={onSearchClick}/>
+      </div >
     </div>
   );
 }

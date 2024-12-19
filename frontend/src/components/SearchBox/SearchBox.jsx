@@ -1,7 +1,7 @@
 import React from "react"
 import { SearchBox } from '@mapbox/search-js-react';
 
-function Search()
+function Search(props)
 {
     
     return(   
@@ -12,6 +12,8 @@ function Search()
             options={{
                 language: 'en',
             }}
+            onRetrieve={(results) => {props.onSearch(results)}}
+            onChange={() => {props.onClick()}}
             />
         </div>
     )

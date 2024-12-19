@@ -32,9 +32,6 @@ function App() {
         disablePrediction={disablePrediction}
         />
       </div>
-      <div className="Search">
-        <Search />
-      </div >
       {needPrediction && <div>
         <FireInfo 
         transitioning={transitioning}
