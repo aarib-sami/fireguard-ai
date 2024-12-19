@@ -1,3 +1,15 @@
+@keyframes slideOut {
+  from {
+      transform: 0;
+      opacity: 1;
+  }
+  to {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+}
+
+
 /* Ensure full viewport coverage */
 html, body, #root, .app-container {
   margin: 0;
@@ -27,4 +39,11 @@ html, body, #root, .app-container {
   z-index: 1;
 }
 
+.fireInfo {
+  z-index: 1;
+}
+
+.fireInfo-slide-out {
+  animation: slideOut 0.5s ease-in-out;
+}
 
