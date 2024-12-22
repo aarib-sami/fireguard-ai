@@ -8,6 +8,7 @@ function App() {
   
   const [needPrediction, setNeedPrediction] = useState(false);
   const [transitioning, setTransitioning] = useState(false);
+  const [fireRisk, setFireRisk] = useState({risk: "", percentage: ""});
 
   function disablePrediction()
   {
@@ -19,9 +20,10 @@ function App() {
     
   }
   
-  function enablePrediction()
+  function enablePrediction(fireRisk)
   {
     setNeedPrediction(true);
+    setFireRisk({risk: fireRisk.risk, percentage: fireRisk.percentage, explanation: fireRisk.explanation});
   }
   return (
     <div className="App">
@@ -36,7 +38,7 @@ function App() {
         <FireInfo 
         transitioning={transitioning}
         disablePrediction={disablePrediction}
-        fireRisk="75%"
+        fireRisk={fireRisk}
         />
       </div>
       }

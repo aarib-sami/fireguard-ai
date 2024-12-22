@@ -29,7 +29,7 @@ function Map(props) {
       longitude,
       zoom: 14,
     });
-    props.enablePrediction();
+    fetchFireRisk(longitude, latitude);
   };
 
   function resetMap(){
@@ -50,11 +50,30 @@ function Map(props) {
       longitude: long,
       zoom: 18,
     })
-    props.enablePrediction();
+    fetchFireRisk(long, lat);
   }
 
   function onSearchClick(){
     props.disablePrediction();
+  }
+
+  async function fetchFireRisk(longitude, latitude)
+  {
+    try 
+    {
+      const response = await fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify  ({longitude, latitude}),
+      });
+      const data = await response.json();
+      console.log(data);
+      props.enablePrediction(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
   return (
