@@ -15,7 +15,7 @@ CORS(app)
 load_dotenv() # Load environment variables
 API_KEY = os.getenv('API_KEY') # API key for OpenWeatherMap
 
-riskExplanation = [["Conditions are favorable for a forest fire if enough vegitation exists in the location."],["Conditions may be suitable for a forest fire if enough vegitation exists in the location."],["Conditions are not favorable for a forest fire."]]
+riskExplanation = [["Conditions are favorable for a forest fire if enough vegetation exists in the location."],["Conditions may be suitable for a forest fire if enough vegetation exists in the location."],["Conditions are not favorable for a forest fire."]]
 
 # Define the same model architecture as used during training
 class Model(nn.Module):
