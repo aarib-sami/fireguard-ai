@@ -92,5 +92,5 @@ def extractFeatures(weatherData):
     rain = int(weatherData['daily'][0].get('rain', 0))
     return torch.tensor([month, temp, rh, wind, rain, 5], dtype=torch.float32)
 
-if __name__ == '__main__':
-    app.run(debug=False, port=8000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)
