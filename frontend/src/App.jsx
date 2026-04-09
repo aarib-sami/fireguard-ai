@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <div className="banner">
-        ⚠️ This is just a demo of the functionality. Live weather API is not in use. Results will not be accurate.
+        ⚠️ This is just a demo of the functionality. Live weather API is not in use. Results will not be accurate. Backend will spin down, results may take 30+ seconds to show.
       </div>
       <div className="Map">
         <Map 
