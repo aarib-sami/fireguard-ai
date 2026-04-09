@@ -1,5 +1,5 @@
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv  # Commented out since live weather API is not in use
 import os
 import torch
 import torch.nn as nn
@@ -12,8 +12,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-load_dotenv() # Load environment variables
-API_KEY = os.getenv('API_KEY') # API key for OpenWeatherMap
+# load_dotenv()  # Commented out since live weather API is not in use
+# API_KEY = os.getenv('API_KEY')  # Commented out since live weather API is not in use
 
 riskExplanation = [["Conditions are favorable for a forest fire if enough vegetation exists in the location."],["Conditions may be suitable for a forest fire if enough vegetation exists in the location."],["Conditions are not favorable for a forest fire."]]
 
@@ -65,11 +65,22 @@ def predict():
 # URL for weather data API
 
 def getWeatherData(long, lat):
-    url = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={long}&units=metric&appid={API_KEY}'
-
-    # Fetch weather data
-    response = requests.get(url)
-    weatherData = response.json()
+    # NOTE: Live weather API is not in use. Using mock data for demonstration purposes.
+    # To enable live weather data, uncomment the code below and set API_KEY in .env file.
+    # url = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={long}&units=metric&appid={API_KEY}'
+    # response = requests.get(url)
+    # weatherData = response.json()
+    # return weatherData
+    
+    # Mock weather data
+    weatherData = {
+        'daily': [{
+            'temp': {'max': 25},  # Temperature in Celsius
+            'humidity': 50,       # Relative humidity %
+            'wind_speed': 5,      # Wind speed m/s
+            'rain': 0             # Rain in mm (optional)
+        }]
+    }
     return weatherData
 
 # Extract relevant features
@@ -82,4 +93,4 @@ def extractFeatures(weatherData):
     return torch.tensor([month, temp, rh, wind, rain, 5], dtype=torch.float32)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, port=8000)

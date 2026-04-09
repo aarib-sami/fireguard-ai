@@ -27,18 +27,153 @@
     background-color: rgb(30, 45, 45);
     z-index: 1;
     width: 250px;
-    height: 340px;
+    min-height: 300px;
     top: 65px;
     left: 20px;
     border-radius: 5px;
-    padding: 10px;
+    padding: 14px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
     font-family: 'Roboto', sans-serif;
     animation: slideIn 0.5s ease-in-out;
     border-radius: 5%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .fire-info {
+        width: 220px;
+        min-height: 300px;
+        top: 60px;
+        left: 15px;
+        padding: 10px;
+    }
+    
+    .risk-text {
+        font-size: 1.9rem;
+    }
+    
+    .risk-info {
+        font-size: 2.4rem;
+    }
+    
+    .risk-percentage {
+        font-size: 1.5rem;
+    }
+    
+    .risk-explanation {
+        font-size: 1rem;
+    }
+    
+    .logo {
+        width: 110px;
+        height: 120px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .fire-info {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85vw;
+        max-width: 320px;
+        height: auto;
+        min-height: 280px;
+        max-height: 80vh; /* Prevent modal from being too tall */
+        padding: 15px;
+        border-radius: 10px;
+        overflow-y: auto; /* Allow scrolling if content is too tall */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+    
+    .risk-text {
+        position: static;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        order: 1;
+    }
+    
+    .risk-info {
+        position: static;
+        font-size: 2.5rem;
+        margin-bottom: 5px;
+        order: 2;
+        white-space: normal;
+    }
+    
+    .risk-percentage {
+        position: static;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        order: 3;
+    }
+    
+    .risk-explanation {
+        position: static;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        padding: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        order: 4;
+    }
+    
+    .logo {
+        position: static;
+        width: 60px;
+        height: auto;
+        margin-top: 10px;
+        order: 5;
+    }
+    
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .fire-info {
+        width: 90vw;
+        padding: 12px;
+        min-height: 250px;
+    }
+    
+    .risk-text {
+        font-size: 1.5rem;
+    }
+    
+    .risk-info {
+        font-size: 2.5rem;
+    }
+    
+    .risk-percentage {
+        font-size: 1.2rem;
+    }
+    
+    .risk-explanation {
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        width: 55px;
+        height: auto;
+    }
 }
 
 .fire-info-slide-out {
@@ -46,49 +181,45 @@
 }
 
 .risk-text, .risk-info, .risk-percentage, .risk-explanation {
-    position: absolute;
     text-align: center;
     margin: 0;
     font-weight: 700;
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.risk-info{
-    font-size: 10vh;
-    top: 53px;
-    white-space: nowrap;  
-    overflow: hidden
-}
+.risk-info {
+        font-size: 3.4rem;
+        white-space: normal;
+        overflow: hidden;
+    }
 
-.risk-text{
-    font-size: 2.8rem;
-    color:rgb(175, 115, 4);
-}
+    .risk-text {
+        font-size: 2.3rem;
+        color: rgb(175, 115, 4);
+    }
 
-.risk-percentage{
-    font-size: 2.0rem;
-    color:orange;
-    top: 120px;
-}
+    .risk-percentage {
+        font-size: 2.1rem;
+        color: orange;
+    }
 
-.risk-explanation{
-    font-size: 4vh;
-    top: 173px;
-    padding: 5px;
-}
+    .risk-explanation {
+        font-size: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
 
 .logo {
-    position: absolute;
-    width: 150px;
-    height: 160px; 
-    top: 230px;
-    max-width: 100%;
-    max-height: 40%;
+    width: 60px;
+    height: auto;
+    margin-top: 12px;
 }
 
 .close-button {
-    position: absolute;
-    top: 5px;
-    right: 2px;
     background: none;
     border: none;
     color: white;
@@ -96,6 +227,11 @@
     cursor: pointer;
     padding: 0;
     margin: 0;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #ccc;
 }
 
 .close-button:hover {

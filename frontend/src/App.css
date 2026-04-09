@@ -9,6 +9,19 @@
   }
 }
 
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ff9800;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
 /* Ensure full viewport coverage */
 html, body, #root, .app-container {
@@ -25,7 +38,7 @@ html, body, #root, .app-container {
 
 .map-container {
   position: absolute;
-  top: 0;
+  top: 40px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -33,7 +46,7 @@ html, body, #root, .app-container {
 
 .search-container {
   position: absolute;
-  top: 20px;
+  top: 60px;
   left: 20px;
   width: 250px;
   z-index: 1;

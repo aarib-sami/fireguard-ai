@@ -27,6 +27,9 @@ function App() {
   }
   return (
     <div className="App">
+      <div className="banner">
+        ⚠️ This is just a demo of the functionality. Live weather API is not in use. Results will not be accurate.
+      </div>
       <div className="Map">
         <Map 
         needPrediction={needPrediction}

@@ -5,6 +5,8 @@ import './Map.css';
 import Button from '@mui/material/Button';
 import Search from '../SearchBox/SearchBox';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const PREDICT_URL = `${API_BASE_URL.replace(/\/$/, '')}/predict`;
 
 function Map(props) {
   const [viewport, setViewport] = useState({
@@ -61,12 +63,12 @@ function Map(props) {
   {
     try 
     {
-      const response = await fetch('http://localhost:5000/predict', {
+      const response = await fetch(PREDICT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify  ({longitude, latitude}),
+        body: JSON.stringify({ longitude, latitude }),
       });
       const data = await response.json();
       console.log(data);
